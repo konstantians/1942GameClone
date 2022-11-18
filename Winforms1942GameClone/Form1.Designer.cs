@@ -70,13 +70,26 @@ namespace Winforms1942GameClone
             this.globalClockTimer.Interval = 1000;
             this.globalClockTimer.Tick += new System.EventHandler(this.globalClockTimer_Tick);
             // 
+            // bulletsTimer
+            // 
+            this.bulletsTimer.Tick += new System.EventHandler(this.bulletsTimer_Tick);
+            // 
             // cleanUpTimer
             // 
             this.cleanUpTimer.Interval = 10;
+            this.cleanUpTimer.Tick += new System.EventHandler(this.cleanUpTimer_Tick);
             // 
             // eventTimer
             // 
             this.eventTimer.Tick += new System.EventHandler(this.eventTimer_Tick);
+            // 
+            // enemyFighterTimer
+            // 
+            this.enemyFighterTimer.Tick += new System.EventHandler(this.enemyFighterTimer_Tick);
+            // 
+            // checkGameOverTimer
+            // 
+            this.checkGameOverTimer.Tick += new System.EventHandler(this.checkGameOverTimer_Tick);
             // 
             // playerPictureBox
             // 

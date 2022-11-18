@@ -118,16 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fighter_death_animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources 1942\fighter_death_animation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="american_plane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources 1942\american_plane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1942Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources 1942\1942Logo.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="japanese_light_fighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources 1942\japanese_light_fighter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bullet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources 1942\bullet1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="japanese_light_fighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources 1942\japanese_light_fighter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bullet2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources 1942\bullet2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1942Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources 1942\1942Logo.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="death_animation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources 1942\death_animation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
