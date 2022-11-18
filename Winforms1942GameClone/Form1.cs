@@ -16,5 +16,17 @@ namespace Winforms1942GameClone
         {
             InitializeComponent();
         }
+
+        private bool gameHasStarted = false; 
+
+        private void startGameButton_Click(object sender, EventArgs e)
+        {
+            playerPictureBox.Visible = true;
+            logoPictureBox.Visible = false;
+            startGameButton.Visible = false;
+            scoreButton.Visible = false;
+            gameHasStarted = true;
+            MessageBox.Show("The game is about to begin!");
+        }
     }
 }

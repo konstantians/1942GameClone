@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources 1942\1.png" />
+    <Content Include="resources 1942\1942Logo.PNG" />
+    <Content Include="resources 1942\2.png" />
+    <Content Include="resources 1942\3.png" />
+    <Content Include="resources 1942\american_plane.png" />
+    <Content Include="resources 1942\american_plane_damaged.png" />
+    <Content Include="resources 1942\bomber_death_animation.png" />
+    <Content Include="resources 1942\boss_destroyed.png" />
+    <Content Include="resources 1942\bullet1.PNG" />
+    <Content Include="resources 1942\bullet2.PNG" />
+    <Content Include="resources 1942\death_animation.png" />
+    <Content Include="resources 1942\fighter_death_animation.png" />
+    <Content Include="resources 1942\japanese_advanced_fighter-removebg-preview.png" />
+    <Content Include="resources 1942\japanese_bomber_mini_boss.png" />
+    <Content Include="resources 1942\japanese_heavy_bomber_boss.png" />
+    <Content Include="resources 1942\japanese_light_fighter.png" />
+    <Content Include="resources 1942\japanese_medium_bomber.png" />
+    <Content Include="resources 1942\japanese_medium_fighter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
