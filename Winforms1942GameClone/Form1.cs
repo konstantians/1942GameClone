@@ -19,6 +19,31 @@ namespace Winforms1942GameClone
 
         private bool gameHasStarted = false;
         private List<PictureBox> playerBullets = new List<PictureBox>();
+        private List<EnemyFighter> enemyFighters = new List<EnemyFighter>();
+        private int clock;
+
+        private class EnemyFighter
+        {
+            public PictureBox Picture { get; set; }
+            public int XChange { get; set; }
+            public int YChange { get; set; }
+            public int BulletDirectionX { get; set; }
+            public int BulletDirectionY { get; set; }
+            public int Life { get; set; }
+            //the greater the number the worse it is
+            public int FireRate { get; set; }
+
+            public EnemyFighter(PictureBox picture, int xChange, int yChange, int life, int fireRate, int bulletDirectionX, int bulletDirectionY)
+            {
+                this.Picture = picture;
+                this.XChange = xChange;
+                this.YChange = yChange;
+                this.Life = life;
+                this.FireRate = fireRate;
+                this.BulletDirectionX = bulletDirectionX;
+                this.BulletDirectionY = bulletDirectionY;
+            }
+        }
 
         private void startGameButton_Click(object sender, EventArgs e)
         {
@@ -72,6 +97,58 @@ namespace Winforms1942GameClone
                     temp += 20;
                 }
 
+            }
+        }
+
+        private void globalClockTimer_Tick(object sender, EventArgs e)
+        {
+            clock += 1;
+        }
+
+        private void eventTimer_Tick(object sender, EventArgs e)
+        {
+            if (clock % 20 == 0 && clock != 0)
+            {
+                int temp = 0;
+                int temp2 = 0;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = global::Winforms1942GameClone.Properties.Resources.japanese_light_fighter;
+                    pictureBox.Location = new Point(0 + temp, 0 + temp2);
+                    pictureBox.Size = new System.Drawing.Size(51, 49);
+                    pictureBox.SizeMode = PictureBoxSizeMode.Normal;
+                    Controls.Add(pictureBox);
+
+                    temp += 60;
+                    temp2 += 5;
+
+                    EnemyFighter enemyFighter = new EnemyFighter(pictureBox, 20, 15, 1, 100, 20, 20);
+                    enemyFighters.Add(enemyFighter);
+                }
+            }
+
+            if ((clock + 10) % 20 == 0 && clock != 0)
+            {
+                int temp = 0;
+                int temp2 = 0;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = global::Winforms1942GameClone.Properties.Resources.japanese_light_fighter;
+                    pictureBox.Location = new Point(this.Width - temp, 0 + temp2);
+                    pictureBox.Size = new System.Drawing.Size(51, 49);
+                    pictureBox.SizeMode = PictureBoxSizeMode.Normal;
+                    Controls.Add(pictureBox);
+
+                    temp += 60;
+                    temp2 += 5;
+
+                    EnemyFighter enemyFighter = new EnemyFighter(pictureBox, -20, 15, 1, 100, -20, 20);
+                    enemyFighters.Add(enemyFighter);
+                }
             }
         }
     }

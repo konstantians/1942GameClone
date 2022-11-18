@@ -29,8 +29,15 @@ namespace Winforms1942GameClone
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.startGameButton = new System.Windows.Forms.Button();
             this.scoreButton = new System.Windows.Forms.Button();
+            this.globalClockTimer = new System.Windows.Forms.Timer(this.components);
+            this.bulletsTimer = new System.Windows.Forms.Timer(this.components);
+            this.cleanUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.eventTimer = new System.Windows.Forms.Timer(this.components);
+            this.enemyFighterTimer = new System.Windows.Forms.Timer(this.components);
+            this.checkGameOverTimer = new System.Windows.Forms.Timer(this.components);
             this.playerPictureBox = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
@@ -58,10 +65,23 @@ namespace Winforms1942GameClone
             this.scoreButton.Text = "Check Best Scores";
             this.scoreButton.UseVisualStyleBackColor = true;
             // 
+            // globalClockTimer
+            // 
+            this.globalClockTimer.Interval = 1000;
+            this.globalClockTimer.Tick += new System.EventHandler(this.globalClockTimer_Tick);
+            // 
+            // cleanUpTimer
+            // 
+            this.cleanUpTimer.Interval = 10;
+            // 
+            // eventTimer
+            // 
+            this.eventTimer.Tick += new System.EventHandler(this.eventTimer_Tick);
+            // 
             // playerPictureBox
             // 
             this.playerPictureBox.BackgroundImage = global::Winforms1942GameClone.Properties.Resources.american_plane;
-            this.playerPictureBox.Location = new System.Drawing.Point(512, 544);
+            this.playerPictureBox.Location = new System.Drawing.Point(500, 544);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(85, 55);
             this.playerPictureBox.TabIndex = 4;
@@ -104,6 +124,12 @@ namespace Winforms1942GameClone
         private System.Windows.Forms.Button startGameButton;
         private System.Windows.Forms.Button scoreButton;
         private System.Windows.Forms.PictureBox playerPictureBox;
+        private System.Windows.Forms.Timer globalClockTimer;
+        private System.Windows.Forms.Timer bulletsTimer;
+        private System.Windows.Forms.Timer cleanUpTimer;
+        private System.Windows.Forms.Timer eventTimer;
+        private System.Windows.Forms.Timer enemyFighterTimer;
+        private System.Windows.Forms.Timer checkGameOverTimer;
     }
 }
 

@@ -89,5 +89,15 @@ namespace Winforms1942GameClone.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japanese_light_fighter {
+            get {
+                object obj = ResourceManager.GetObject("japanese_light_fighter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
