@@ -16,6 +16,15 @@ namespace Winforms1942GameClone
         {
             random = new Random();
             InitializeComponent();
+
+            playerPictureBox.Visible = true;
+            gameHasStarted = true;
+            globalClockTimer.Enabled = true;
+            bulletsTimer.Enabled = true;
+            cleanUpTimer.Enabled = true;
+            eventTimer.Enabled = true;
+            enemyFighterTimer.Enabled = true;
+            checkGameOverTimer.Enabled = true;
         }
 
         private Random random;
@@ -25,6 +34,7 @@ namespace Winforms1942GameClone
         private List<EnemyBullet> enemyBullets = new List<EnemyBullet>();
         private List<EnemyDestruction> enemyDestructions = new List<EnemyDestruction>();
         private int clock;
+        private int score;
 
         private class EnemyDestruction
         {
@@ -101,22 +111,6 @@ namespace Winforms1942GameClone
                 this.ChangeCounterY = changeCounterY;
                 this.RangeY = rangeY;
             }
-        }
-        private void startGameButton_Click(object sender, EventArgs e)
-        {
-            playerPictureBox.Visible = true;
-            logoPictureBox.Visible = false;
-            startGameButton.Visible = false;
-            scoreButton.Visible = false;
-            gameHasStarted = true;
-
-            globalClockTimer.Enabled = true;
-            bulletsTimer.Enabled = true;
-            cleanUpTimer.Enabled = true;
-            eventTimer.Enabled = true;
-            enemyFighterTimer.Enabled = true;
-            checkGameOverTimer.Enabled = true;
-            MessageBox.Show("The game is about to begin!");
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -324,7 +318,7 @@ namespace Winforms1942GameClone
             }
 
             //final boss event
-            if (clock == 1)
+            if (clock == 90)
             {
                 PictureBox pictureBox = new PictureBox();
                 pictureBox.Image = global::Winforms1942GameClone.Properties.Resources.japanese_heavy_bomber_boss;
@@ -564,11 +558,12 @@ namespace Winforms1942GameClone
             //if an enemy bullet hit our plane
             foreach (EnemyBullet enemybullet in enemyBullets)
             {
-                if ((enemybullet.Picture.Location.X >= playerPictureBox.Location.X && enemybullet.Picture.Location.X <= playerPictureBox.Location.X + 85)
+                if ((enemybullet.Picture.Location.X >= playerPictureBox.Location.X + 2 && enemybullet.Picture.Location.X <= playerPictureBox.Location.X + 83)
                             && (enemybullet.Picture.Location.Y >= playerPictureBox.Location.Y && enemybullet.Picture.Location.Y <= playerPictureBox.Location.Y + 55))
                 {
 
-                    playerPictureBox.Image = global::Winforms1942GameClone.Properties.Resources.fighter_death_animation;
+                    playerPictureBox.Size = new System.Drawing.Size(100, 85);
+                    playerPictureBox.Image = global::Winforms1942GameClone.Properties.Resources.death_animation;
 
                     globalClockTimer.Stop();
                     bulletsTimer.Stop();
@@ -577,9 +572,18 @@ namespace Winforms1942GameClone
                     enemyFighterTimer.Stop();
                     checkGameOverTimer.Stop();
 
-                    MessageBox.Show("You Lost!");
-
-                    return;
+                    DialogResult dialog = MessageBox.Show("You Have lost. Would you like to check the scores or not?", "Defeat Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        ScoresForm scoresForm = new ScoresForm();
+                        scoresForm.Show();
+                        this.Close();
+                    }
+                    else if (dialog == DialogResult.No)
+                    {
+                        Application.OpenForms[0].Show();
+                        this.Close();
+                    }
                 }
             }
 
@@ -589,7 +593,8 @@ namespace Winforms1942GameClone
                 if ((fighter.Picture.Location.X >= playerPictureBox.Location.X && fighter.Picture.Location.X <= playerPictureBox.Location.X + 85)
                             && (fighter.Picture.Location.Y >= playerPictureBox.Location.Y && fighter.Picture.Location.Y <= playerPictureBox.Location.Y + 55))
                 {
-                    playerPictureBox.Image = global::Winforms1942GameClone.Properties.Resources.fighter_death_animation;
+                    playerPictureBox.Size = new System.Drawing.Size(100, 85);
+                    playerPictureBox.Image = global::Winforms1942GameClone.Properties.Resources.death_animation;
                     fighter.Picture.Image = global::Winforms1942GameClone.Properties.Resources.fighter_death_animation;
 
                     globalClockTimer.Stop();
@@ -599,9 +604,19 @@ namespace Winforms1942GameClone
                     enemyFighterTimer.Stop();
                     checkGameOverTimer.Stop();
 
-                    MessageBox.Show("You Lost!");
-
-                    return;
+                    DialogResult dialog = MessageBox.Show("You Have lost. Would you like to check the scores or not?", "Defeat Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if(dialog == DialogResult.Yes)
+                    {
+                        ScoresForm scoresForm = new ScoresForm();
+                        scoresForm.Show();
+                        this.Close();
+                    }
+                    else if(dialog == DialogResult.No)
+                    {
+                        Application.OpenForms[0].Show();
+                        this.Close();
+                    }
+                    
                 }
             }
         }
@@ -629,6 +644,7 @@ namespace Winforms1942GameClone
                         pictureBox.Image = global::Winforms1942GameClone.Properties.Resources._3;
                         enemyDestruction.TimeRemaining = 20;
                         pictureBox.Size = new System.Drawing.Size(208, 163);
+                        score += 15;
                     
                     }
                     else if(enemyFighters[i].FighterType == "boss")
@@ -636,6 +652,7 @@ namespace Winforms1942GameClone
                         pictureBox.Image = global::Winforms1942GameClone.Properties.Resources.boss_destroyed;
                         enemyDestruction.TimeRemaining = 20;
                         pictureBox.Size = new System.Drawing.Size(540, 293);
+                        score += 30;
                     }
                     else
                     {
@@ -657,6 +674,12 @@ namespace Winforms1942GameClone
             }
 
             return false;
+        }
+
+        //TODO find another way
+        private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Application.OpenForms[0].Close();
         }
     }
 }
