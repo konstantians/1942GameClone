@@ -12,6 +12,7 @@ namespace Winforms1942GameClone
 {
     public partial class MenuForm : Form
     {
+        private string username = "";
         public MenuForm()
         {
             InitializeComponent();
@@ -20,8 +21,18 @@ namespace Winforms1942GameClone
         private void startGameButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            GameForm gameForm = new GameForm();
+            if(usernameTextBox.Text == "")
+            {
+                username = "anonymous";
+            }
+            else
+            {
+                username = usernameTextBox.Text;
+            }
+             
+            GameForm gameForm = new GameForm(username);
             gameForm.Show();
+            usernameTextBox.Text = "";
         }
 
         private void scoreButton_Click(object sender, EventArgs e)

@@ -37,6 +37,8 @@ namespace Winforms1942GameClone
             this.enemyFighterTimer = new System.Windows.Forms.Timer(this.components);
             this.checkGameOverTimer = new System.Windows.Forms.Timer(this.components);
             this.playerPictureBox = new System.Windows.Forms.PictureBox();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.highscoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +78,36 @@ namespace Winforms1942GameClone
             this.playerPictureBox.TabStop = false;
             this.playerPictureBox.Visible = false;
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(10, 11);
+            this.scoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(101, 24);
+            this.scoreLabel.TabIndex = 5;
+            this.scoreLabel.Text = "Score:0";
+            // 
+            // highscoreLabel
+            // 
+            this.highscoreLabel.AutoSize = true;
+            this.highscoreLabel.Font = new System.Drawing.Font("Courier New", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highscoreLabel.Location = new System.Drawing.Point(459, 9);
+            this.highscoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.highscoreLabel.Name = "highscoreLabel";
+            this.highscoreLabel.Size = new System.Drawing.Size(153, 24);
+            this.highscoreLabel.TabIndex = 6;
+            this.highscoreLabel.Text = "HighScore:0";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1084, 644);
+            this.Controls.Add(this.highscoreLabel);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.playerPictureBox);
             this.Name = "GameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -90,6 +116,7 @@ namespace Winforms1942GameClone
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,6 +128,8 @@ namespace Winforms1942GameClone
         private System.Windows.Forms.Timer eventTimer;
         private System.Windows.Forms.Timer enemyFighterTimer;
         private System.Windows.Forms.Timer checkGameOverTimer;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label highscoreLabel;
     }
 }
 

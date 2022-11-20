@@ -12,11 +12,23 @@ namespace Winforms1942GameClone
 {
     public partial class GameForm : Form
     {
-        public GameForm()
+        private int highScore;
+        private string username;
+        private Random random;
+        private bool gameHasStarted = false;
+        private List<PictureBox> playerBullets = new List<PictureBox>();
+        private List<EnemyFighter> enemyFighters = new List<EnemyFighter>();
+        private List<EnemyBullet> enemyBullets = new List<EnemyBullet>();
+        private List<EnemyDestruction> enemyDestructions = new List<EnemyDestruction>();
+        private int clock;
+        private int score = 0;
+
+        public GameForm(string username)
         {
             random = new Random();
             InitializeComponent();
 
+            this.username = username;
             playerPictureBox.Visible = true;
             gameHasStarted = true;
             globalClockTimer.Enabled = true;
@@ -25,16 +37,11 @@ namespace Winforms1942GameClone
             eventTimer.Enabled = true;
             enemyFighterTimer.Enabled = true;
             checkGameOverTimer.Enabled = true;
+
+            highScore = SqliteDataAccess.LoadScores().FirstOrDefault().Score;
+            highscoreLabel.Text = $"HighScore:{highScore}";
         }
 
-        private Random random;
-        private bool gameHasStarted = false;
-        private List<PictureBox> playerBullets = new List<PictureBox>();
-        private List<EnemyFighter> enemyFighters = new List<EnemyFighter>();
-        private List<EnemyBullet> enemyBullets = new List<EnemyBullet>();
-        private List<EnemyDestruction> enemyDestructions = new List<EnemyDestruction>();
-        private int clock;
-        private int score;
 
         private class EnemyDestruction
         {
@@ -572,6 +579,11 @@ namespace Winforms1942GameClone
                     enemyFighterTimer.Stop();
                     checkGameOverTimer.Stop();
 
+                    ScoreModel scoreModel = new ScoreModel();
+                    scoreModel.Score = score;
+                    scoreModel.Username = username;
+                    SqliteDataAccess.SaveScore(scoreModel);
+
                     DialogResult dialog = MessageBox.Show("You Have lost. Would you like to check the scores or not?", "Defeat Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (dialog == DialogResult.Yes)
                     {
@@ -603,6 +615,11 @@ namespace Winforms1942GameClone
                     eventTimer.Stop();
                     enemyFighterTimer.Stop();
                     checkGameOverTimer.Stop();
+
+                    ScoreModel scoreModel = new ScoreModel();
+                    scoreModel.Score = score;
+                    scoreModel.Username = username;
+                    SqliteDataAccess.SaveScore(scoreModel);
 
                     DialogResult dialog = MessageBox.Show("You Have lost. Would you like to check the scores or not?", "Defeat Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if(dialog == DialogResult.Yes)
@@ -658,6 +675,7 @@ namespace Winforms1942GameClone
                     {
                         pictureBox.Image = global::Winforms1942GameClone.Properties.Resources.fighter_death_animation;
                         pictureBox.Size = new System.Drawing.Size(53, 46);
+                        score += 1;
                     }
                     
                     
@@ -668,6 +686,11 @@ namespace Winforms1942GameClone
 
                     Controls.Remove(enemyFighters[i].Picture);
                     enemyFighters.Remove(enemyFighters[i]);
+                    scoreLabel.Text = $"Score:{score}";
+                    if(score > highScore)
+                    {
+                        highscoreLabel.Text = $"HighScore:{score}";
+                    }
                     return true;
                 }
 
