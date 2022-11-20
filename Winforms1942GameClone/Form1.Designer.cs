@@ -76,7 +76,7 @@ namespace Winforms1942GameClone
             // 
             // cleanUpTimer
             // 
-            this.cleanUpTimer.Interval = 10;
+            this.cleanUpTimer.Interval = 1;
             this.cleanUpTimer.Tick += new System.EventHandler(this.cleanUpTimer_Tick);
             // 
             // eventTimer
@@ -94,7 +94,7 @@ namespace Winforms1942GameClone
             // playerPictureBox
             // 
             this.playerPictureBox.BackgroundImage = global::Winforms1942GameClone.Properties.Resources.american_plane;
-            this.playerPictureBox.Location = new System.Drawing.Point(500, 544);
+            this.playerPictureBox.Location = new System.Drawing.Point(501, 577);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(85, 55);
             this.playerPictureBox.TabIndex = 4;
@@ -116,7 +116,7 @@ namespace Winforms1942GameClone
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1084, 611);
+            this.ClientSize = new System.Drawing.Size(1084, 644);
             this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.scoreButton);
             this.Controls.Add(this.startGameButton);

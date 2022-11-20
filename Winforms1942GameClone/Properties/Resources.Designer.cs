@@ -73,9 +73,49 @@ namespace Winforms1942GameClone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3 {
+            get {
+                object obj = ResourceManager.GetObject("3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap american_plane {
             get {
                 object obj = ResourceManager.GetObject("american_plane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bomber_death_animation {
+            get {
+                object obj = ResourceManager.GetObject("bomber_death_animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boss_destroyed {
+            get {
+                object obj = ResourceManager.GetObject("boss_destroyed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boss_destroyed1 {
+            get {
+                object obj = ResourceManager.GetObject("boss_destroyed1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +163,39 @@ namespace Winforms1942GameClone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap japanese_bomber_mini_boss {
+            get {
+                object obj = ResourceManager.GetObject("japanese_bomber_mini_boss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japanese_heavy_bomber_boss {
+            get {
+                object obj = ResourceManager.GetObject("japanese_heavy_bomber_boss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap japanese_light_fighter {
             get {
                 object obj = ResourceManager.GetObject("japanese_light_fighter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap japanese_medium_fighter {
+            get {
+                object obj = ResourceManager.GetObject("japanese_medium_fighter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
