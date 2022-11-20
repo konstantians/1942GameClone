@@ -29,7 +29,11 @@ namespace Winforms1942GameClone
             scoresLabels.Add(seventhScoreLabel); scoresLabels.Add(eighthScoreLabel);  scoresLabels.Add(ninthScoreLabel); 
             scoresLabels.Add(tenthScoreLabel);
 
-            for(int i = 0; i < scores.Count; i++)
+            int temp = 0;
+            if(scores.Count <= 10) temp = scores.Count;
+            else temp = 10; 
+
+            for(int i = 0; i < temp; i++)
             {
                 usernamesLabels[i].Text = scores[i].Username;
                 scoresLabels[i].Text = scores[i].Score.ToString();
